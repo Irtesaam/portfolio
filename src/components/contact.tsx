@@ -24,7 +24,7 @@ export function Contact() {
                     <ButtonMagic
                         title="LinkedIn" icon={<IconBrandLinkedin />} position={'right'} />
                 </a>
-                <a href="https://instagram.com/irte.snaps_" target="__blank" rel="noopener noreferrer">
+                <a href="https://instagram.com/irte.snaps" target="__blank" rel="noopener noreferrer">
                     <ButtonMagic
                         title="Instagram" icon={<IconBrandInstagram />} position={'right'} />
                 </a>
