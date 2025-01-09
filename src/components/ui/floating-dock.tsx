@@ -10,7 +10,6 @@ import {
     AnimatePresence,
     MotionValue,
     motion,
-    useMotionValue,
     useSpring,
     useTransform,
 } from "framer-motion";
@@ -19,7 +18,6 @@ import { useRef, useState } from "react";
 
 export const FloatingDock = ({
     items,
-    desktopClassName,
     mobileClassName,
 }: {
     items: { title: string; icon: React.ReactNode; href: string }[];
@@ -115,7 +113,7 @@ const FloatingDockMobile = ({
 
 function IconContainer({
     mouseX,
-    title,
+    // title,
     icon,
     href,
 }: {
@@ -124,47 +122,47 @@ function IconContainer({
     icon: React.ReactNode;
     href: string;
 }) {
-    let ref = useRef<HTMLDivElement>(null);
+    const ref = useRef<HTMLDivElement>(null);
 
-    let distance = useTransform(mouseX, (val) => {
-        let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+    const distance = useTransform(mouseX, (val) => {
+        const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
 
         return val - bounds.x - bounds.width / 2;
     });
 
-    let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-    let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+    const widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+    const heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
 
-    let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
-    let heightTransformIcon = useTransform(
+    const widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
+    const heightTransformIcon = useTransform(
         distance,
         [-150, 0, 150],
         [20, 40, 20]
     );
 
-    let width = useSpring(widthTransform, {
+    const width = useSpring(widthTransform, {
         mass: 0.1,
         stiffness: 150,
         damping: 12,
     });
-    let height = useSpring(heightTransform, {
-        mass: 0.1,
-        stiffness: 150,
-        damping: 12,
-    });
-
-    let widthIcon = useSpring(widthTransformIcon, {
-        mass: 0.1,
-        stiffness: 150,
-        damping: 12,
-    });
-    let heightIcon = useSpring(heightTransformIcon, {
+    const height = useSpring(heightTransform, {
         mass: 0.1,
         stiffness: 150,
         damping: 12,
     });
 
-    const [hovered, setHovered] = useState(false);
+    const widthIcon = useSpring(widthTransformIcon, {
+        mass: 0.1,
+        stiffness: 150,
+        damping: 12,
+    });
+    const heightIcon = useSpring(heightTransformIcon, {
+        mass: 0.1,
+        stiffness: 150,
+        damping: 12,
+    });
+
+    const [setHovered] = useState(false);
 
     return (
         <Link href={href}>

@@ -11,7 +11,7 @@ export default function Projects() {
                 <span className='dark:text-purple text-[#b06ee9]'>recent projects</span>
             </h1>
             <div className='flex flex-wrap justify-center items-center p-4 gap-x-24'>
-                {projects.map(({ id, title, des, img, iconLists, link }) => (
+                {projects.map(({ id, title, des, img, link }) => (
                     <div key={id} className='sm:h-[41rem] h-[28rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[90vw]'>
                         <PinContainer title={link} href={link}>
                             <div className='relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden h-[30vh] sm:h-[40vh] mb-10'>

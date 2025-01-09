@@ -3,7 +3,6 @@ import React from "react";
 import {
     IconBrandGithub,
     IconBrandGmail,
-    IconBrandGoogleMaps,
     IconBrandInstagram,
     IconBrandLinkedin,
 } from "@tabler/icons-react";
