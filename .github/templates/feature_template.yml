@@ -1,0 +1,34 @@
+name: Enhancement Request 🧑‍💻
+description: Submit your enhancement requests for review.
+title: '[FEAT]: '
+# labels: ["Up-for-Grabs ✋", "enhancement 🧑‍💻"]
+assignees:
+  - ''
+
+
+body:
+  - type: textarea
+    id: enhancement-aim
+    attributes:
+      label: Enhancement Aim
+      placeholder: Describe the aim of the enhancement.
+    validations:
+      required: true
+
+
+  - type: textarea
+    id: changes
+    attributes:
+      label: Changes
+      placeholder: Enlist the changes you want to make.
+    validations:
+      required: true
+
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots 📷
+      placeholder: Write N/A if not available.
+    validations:
+      required: false
