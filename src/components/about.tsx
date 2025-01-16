@@ -49,7 +49,7 @@ export function About() {
     return (
         <div className='py-20' id='about'>
             <h1 className='heading'>
-                A little About {' '}
+                About {' '}
                 <span className='dark:text-purple text-[#b06ee9]'>Me</span>
             </h1>
             <AnimatedTestimonials testimonials={testimonials} />
