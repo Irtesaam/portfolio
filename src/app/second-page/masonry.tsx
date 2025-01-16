@@ -35,7 +35,7 @@ export default function ImageMasonry() {
                 maxWidth:  isSmallScreen ? '25rem' : '100rem', // Limit the maximum width on larger screens
                 margin: '0 auto', // Center the content
             }}
-            className='pt-20 flex justify-center items-center'>
+            className='flex justify-center items-center'>
             <Masonry columns={isSmallScreen ? 2 : 4} spacing={2}>
                 {images.map((item, index) => (
                     <div key={index} className='transition duration-500 ease-in-out transform hover:scale-105'>
