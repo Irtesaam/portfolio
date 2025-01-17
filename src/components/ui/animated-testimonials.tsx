@@ -87,6 +87,7 @@ export const AnimatedTestimonials = ({
                                         alt={testimonial.name}
                                         width={500}
                                         height={500}
+                                        priority={index === 0} // Enable eager loading for the first image to reduce LCP
                                         draggable={false}
                                         className="h-full w-full rounded-3xl object-cover object-center"
                                     />
