@@ -108,7 +108,7 @@ export function Experience() {
     return (
         <div className='py-10' id='experience'>
             <h1 className='heading'>
-                My Journey in {' '}
+                Experience in {' '}
                 <span className='dark:text-purple text-[#b06ee9]'>Tech</span>
             </h1>
             <div className="w-full py-10">

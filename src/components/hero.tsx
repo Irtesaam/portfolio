@@ -28,6 +28,7 @@ export default function Hero() {
                 <TextGenerateEffect
                     words="Hi! I am Irtesaam Atfi"
                     className="text-center text-[40px] md:text-5xl lg:text-7xl"
+                    // Instead of this heavy JS in initial load, we can use a simple CSS styling to reduce LCP
                 />
 
                 <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-lg">

@@ -7,8 +7,8 @@ export default function Projects() {
     return (
         <div className='py-20' id='projects'>
             <h1 className='heading px-5'>
-                A small collection of {' '}
-                <span className='dark:text-purple text-[#b06ee9]'>recent projects</span>
+                Recent {' '}
+                <span className='dark:text-purple text-[#b06ee9]'> Projects</span>
             </h1>
             <div className='flex flex-wrap justify-center items-center p-4 gap-x-24'>
                 {projects.map(({ id, title, des, img, link }) => (

@@ -157,7 +157,7 @@ export function Headings() {
     return (
         <div className='py-20 flex flex-col' id='gallery'>
             <h1 className='heading'>
-                My {' '}
+                The {' '}
                 <span className='dark:text-purple text-[#b06ee9]'>Gallery</span>
             </h1>
         </div>
