@@ -16,7 +16,7 @@ export default function Projects() {
                         <PinContainer title={link} href={link}>
                             <div className='relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden h-[30vh] sm:h-[40vh] mb-10'>
                                 <div className='relative w-full h-full overflow-hidden lg:rounded-3xl bg-gray-300 dark:bg-black-200'>
-                                    <img src="/projects/bg.png" alt="bg-img" />
+                                    <img src="/projects/bg.webp" alt="bg-img" />
                                 </div>
                                 <img
                                     src={img}
