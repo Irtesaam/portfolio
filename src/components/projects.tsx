@@ -2,6 +2,7 @@ import { projects } from '@/data'
 import React from 'react'
 import { PinContainer } from './ui/3d-pin'
 import { FaLocationArrow } from 'react-icons/fa'
+import Image from "next/image";
 
 export default function Projects() {
     return (
@@ -16,11 +17,13 @@ export default function Projects() {
                         <PinContainer title={link} href={link}>
                             <div className='relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden h-[30vh] sm:h-[40vh] mb-10'>
                                 <div className='relative w-full h-full overflow-hidden lg:rounded-3xl bg-gray-300 dark:bg-black-200'>
-                                    <img src="/projects/bg.webp" alt="bg-img" />
+                                    <Image src="/projects/bg.webp" alt="bg-img" width={400} height={200} />
                                 </div>
-                                <img
+                                <Image
                                     src={img}
                                     alt={title}
+                                    width={400}
+                                    height={200}
                                     className='z-5 absolute bottom-0 h-60 w-80 transform' style={{ rotate: '5deg' }} />
                             </div>
                             <h1 className='font-bold lg:text-xl md:text-xl text-base line-clamp-1'>
