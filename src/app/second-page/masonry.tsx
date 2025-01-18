@@ -1,6 +1,6 @@
 'use client';
 
-// import Image from 'next/image';
+import Image from 'next/image';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
@@ -62,11 +62,12 @@ export default function ImageMasonry() {
                     {images.map((item, index) => (
                         <div key={index} className='transition duration-500 ease-in-out transform hover:scale-105'>
                             {/* <Label>{index + 1}</Label> */}
-                            <img
-                                srcSet={`${item}?w=162&auto=format&dpr=2 2x`}
-                                src={`${item}?w=162&auto=format`}
+                            <Image
+                                src={`${item}`}
                                 alt="Image"
-                                loading="lazy"
+                                // loading="lazy"
+                                width={400}
+                                height={500}
                                 style={{
                                     borderBottomLeftRadius: 4,
                                     borderBottomRightRadius: 4,
@@ -75,7 +76,7 @@ export default function ImageMasonry() {
                                 }}
                                 draggable={false}
                                 onClick={() => setSelectedImage(item)}
-                                />
+                            />
                         </div>
                     ))}
                 </Masonry>

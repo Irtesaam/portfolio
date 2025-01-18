@@ -8,7 +8,7 @@ export default function Heading() {
     return (
         <div>
             <div className='absolute inset-0 z-0'>
-                <Image src={'/projects/bg.webp'} alt={''} width={1920} height={1080} layout={'responsive'} />
+                <Image src={'/projects/bg.webp'} alt={''} width={1920} height={1080} priority />
             </div>
             <div className='flex justify-end mr-5 mt-5 mb-2 inset-0'>
                 <button className="flex items-end justify-end border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full transition duration-300 ease-in-out hover:bg-neutral-200 dark:hover:bg-white/[0.1]"
