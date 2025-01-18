@@ -26,7 +26,7 @@ export function Gallery() {
                     </CardItem>
                     <CardItem translateZ="100" className="w-full mt-4">
                         <Image
-                            src="/gallery/g1.jpeg"
+                            src="/gallery/g1.webp"
                             height="1000"
                             width="1000"
                             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -73,7 +73,7 @@ export function Gallery() {
                     </CardItem>
                     <CardItem translateZ="100" className="w-full mt-4">
                         <Image
-                            src="/gallery/g2.jpeg"
+                            src="/gallery/g2.webp"
                             height="1000"
                             width="1000"
                             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
@@ -120,7 +120,7 @@ export function Gallery() {
                     </CardItem>
                     <CardItem translateZ="100" className="w-full mt-4">
                         <Image
-                            src="/gallery/g3.jpeg"
+                            src="/gallery/g3.webp"
                             height="1000"
                             width="1000"
                             className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"

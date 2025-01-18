@@ -8,7 +8,7 @@ export function About() {
                 "I am currently a Pre-final year student pursuing Bachelor's in Civil Engineering at National Institute of Technology, Hamirpur. Wanna know more about me ? Slide to next ...                                                                                                                                                                                                                                                                                                                                                                         ",
             name: "Education",
             designation: "2022-present",
-            src: "/about/ab1.jpeg",
+            src: "/about/ab1.webp",
         },
         {
             quote:
@@ -22,7 +22,7 @@ export function About() {
                 "What started as a casual interest has evolved into something I truly cherish, making the most of every moment I dedicate to it. My knack for timing the shot with precision and the keen eye for composition have cultivated a strong sense of patience and focus within me. Three years on, and I remain in debt of Photography for choosing me.",
             name: "Photographer",
             designation: "Canon 200D II",
-            src: "/about/ab3.jpeg",
+            src: "/about/ab3.webp",
         },
         {
             quote:
@@ -36,14 +36,14 @@ export function About() {
                 "Each of us has a 'Bunny' somewhere deep within, but only a few have the courage to set it free. With that said, I have been to over 10 Indian States and 20+ cities capturing serene landscape and restless streets of our country. However, the place that holds a special place in my heart is Kashmir — the very first trip I ever took, and that changed me forever.",
             name: "Traveller",
             designation: "The Best of my hobby",
-            src: "/about/ab7.jpeg",
+            src: "/about/ab5.webp",
         },
         {
             quote:
                 "I have Acer Predator Helios Neo 16 with i7-13700HX, 16GB RAM, 6GB Nvidia RTX 4050, 1TB SSD, 1TB external SSD (photographer needs ?) and its dual booted with Ubuntu 24.04 alongside Windows 11. I always love to tweak the system settings and try out new things. My Blog page will be added soon where you can read about my digital adventures.",
             name: "Random Fact",
             designation: "My System Setup",
-            src: "/about/ab6.jpeg",
+            src: "/about/ab6.webp",
         },
     ];
     return (
