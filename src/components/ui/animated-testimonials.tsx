@@ -14,7 +14,7 @@ type Testimonial = {
 
 export const AnimatedTestimonials = ({
     testimonials,
-    autoplay = false,
+    autoplay = true,
 }: {
     testimonials: Testimonial[];
     autoplay?: boolean;
@@ -35,7 +35,7 @@ export const AnimatedTestimonials = ({
 
     useEffect(() => {
         if (autoplay) {
-            const interval = setInterval(handleNext, 10000);
+            const interval = setInterval(handleNext, 7000);
             return () => clearInterval(interval);
         }
     }, [autoplay, handleNext]);
@@ -148,7 +148,7 @@ export const AnimatedTestimonials = ({
                             ))}
                         </motion.p>
                     </motion.div>
-                    <div className="relative">
+                    {/* <div className="relative">
                         <div className="flex pt-10 gap-5 md:pt-0">
                             <button
                                 onClick={handlePrev}
@@ -163,7 +163,7 @@ export const AnimatedTestimonials = ({
                                 <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
                             </button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

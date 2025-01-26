@@ -5,7 +5,7 @@ export function About() {
     const testimonials = [
         {
             quote:
-                "I am currently a Pre-final year student pursuing Bachelor's in Civil Engineering at National Institute of Technology, Hamirpur. Wanna know more about me ? Slide to next ...                                                                                                                                                                                                                                                                                                                                                                         ",
+                "I am currently a Pre-final year student pursuing Bachelor's in Civil Engineering at National Institute of Technology, Hamirpur.",
             name: "Education",
             designation: "2022-present",
             src: "/about/ab1.webp",
@@ -47,7 +47,7 @@ export function About() {
         },
     ];
     return (
-        <div className='py-20' id='about'>
+        <div className='py-20 mt-20' id='about'>
             <h1 className='heading'>
                 About {' '}
                 <span className='dark:text-purple text-[#b06ee9]'>Me</span>
