@@ -47,7 +47,7 @@ export const AnimatedTestimonials = ({
 
     return (
         <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 pt-20 pb-10">
-            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-20">
                 <div>
                     <div className="relative h-80 w-full md:h-96 md:w-96 rounded-3xl">
                         <AnimatePresence>
@@ -94,6 +94,22 @@ export const AnimatedTestimonials = ({
                                 </motion.div>
                             ))}
                         </AnimatePresence>
+                    </div>
+                    <div className="pt-0 md:pt-5 absolute right-0 xl:left-1/2 xl:ml-10">
+                        <div className="flex pt-10 gap-5 md:pt-0">
+                            <button
+                                onClick={handlePrev}
+                                className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+                            >
+                                <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
+                            </button>
+                            <button
+                                onClick={handleNext}
+                                className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+                            >
+                                <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className="flex justify-between flex-col pt-1">
@@ -148,22 +164,6 @@ export const AnimatedTestimonials = ({
                             ))}
                         </motion.p>
                     </motion.div>
-                    {/* <div className="relative">
-                        <div className="flex pt-10 gap-5 md:pt-0">
-                            <button
-                                onClick={handlePrev}
-                                className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
-                            >
-                                <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
-                            </button>
-                            <button
-                                onClick={handleNext}
-                                className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
-                            >
-                                <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
-                            </button>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </div>
