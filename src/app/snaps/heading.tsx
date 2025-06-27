@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
+import "./irtesaam-artistic-font.css";
 
 export default function Heading({ galleryRef }: { galleryRef: React.RefObject<HTMLDivElement> }) {
     // Scroll-based animation logic
@@ -31,22 +32,33 @@ export default function Heading({ galleryRef }: { galleryRef: React.RefObject<HT
                 <Image src={'/projects/bg.webp'} alt={''} width={1920} height={1080} priority className="w-full h-full object-cover blur-sm" />
                 <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/80 dark:from-black/80 dark:via-black/60 dark:to-black/80" />
             </motion.div>
-            {/* Modern Heading with fixed position and scroll fade */}
+            {/* Modern Hero Section: Image left, Text right */}
             <motion.div
                 style={{ opacity }}
-                className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center justify-center pointer-events-none select-none w-[95vw] max-w-xl px-2 sm:w-[90vw] sm:px-4"
+                className="relative z-10 flex flex-col md:flex-row items-center justify-center w-[95vw] max-w-4xl px-2 sm:w-[90vw] sm:px-4 py-4 md:py-16 gap-8 md:gap-16"
             >
-                <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold tracking-widest text-center text-black dark:text-white drop-shadow-lg">
-                    Irtesaam Atfi<span className="text-[#b06ee9] dark:text-purple"></span>
-                </h1>
-                <p className="mt-4 text-sm xs:text-base md:text-lg text-gray-700 dark:text-gray-300 w-full text-center">
-                   I’m a photographer & student based in India.
-                </p>
+                {/* Left: Profile Image */}
+                <div className="flex-shrink-0 flex items-center justify-center md:justify-start w-56 h-56 md:w-80 md:h-80 rounded-full overflow-hidden shadow-lg bg-white/80 dark:bg-black/80 border-4 border-purple-300 dark:border-purple-700 md:ml-[-40px] ml-0">
+                    <Image src="/about/ab1.webp" alt="Irtesaam Atfi" width={400} height={400} className="object-cover w-full h-full" priority />
+                </div>
+                {/* Right: Name and Description */}
+                <div className="flex flex-col items-center md:items-start text-center md:text-left md:ml-8">
+                    <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl tracking-widest text-black dark:text-white drop-shadow-lg mb-2 font-[Pacifico]" style={{ fontFamily: 'Pacifico, cursive', fontWeight: 400 }}>
+                        Irtesaam Atfi
+                    </h1>
+                    <p className="mt-2 text-sm xs:text-base md:text-lg text-gray-700 dark:text-gray-300 w-full max-w-md font-[Quicksand]" style={{ fontFamily: 'Quicksand, sans-serif' }}>
+                        I’m a photographer and student based in India, drawn to capturing honest, unscripted moments. My style blends street, portrait, and documentary photography, with a focus on mood, emotion, and natural light. Whether it’s gritty city textures or quiet, candid expressions, I aim for authenticity over perfection.
+
+                        All the images on this site come from my travels — raw, personal, and unplanned. Every shot is a reflection of what I’ve seen and felt along the way. I shoot with a Canon 200D II, using an 18–55mm kit lens and a 50mm prime — lightweight, versatile, and perfect for the way I work.
+
+
+                    </p>
+                </div>
             </motion.div>
             {/* Downward Arrow Icon */}
             <button
                 onClick={handleArrowClick}
-                className="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 rounded-full p-2 shadow-lg transition pointer-events-auto bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent"
+                className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 rounded-full p-2 shadow-lg transition pointer-events-auto bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent"
                 aria-label="Scroll to gallery image section"
             >
                 <Image
@@ -61,7 +73,7 @@ export default function Heading({ galleryRef }: { galleryRef: React.RefObject<HT
             {/* Scroll to Top Button */}
             <ScrollToTopButton />
             {/* Spacer to allow scrolling past fixed heading */}
-            <div className="h-[80vh] md:h-[100vh] w-full" />
+            <div className="h-[20vh] w-full" />
         </div>
     );
 }
@@ -109,7 +121,7 @@ function ScrollToTopButton() {
             className="bg-white/80 dark:bg-black/80 border border-gray-300 dark:border-gray-700 rounded-full p-3 shadow-lg hover:bg-white dark:hover:bg-black"
             aria-label="Scroll to top"
         >
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7"/></svg>
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 15l7-7 7 7" /></svg>
         </button>
     );
 }

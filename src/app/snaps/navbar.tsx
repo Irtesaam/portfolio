@@ -26,7 +26,7 @@ export default function SnapsNavbar() {
     }, []);
 
     return (
-        <nav className={`w-full z-50 sticky top-0 transition-all duration-300 ${show ? 'translate-y-0' : '-translate-y-full'} pointer-events-auto bg-gradient-to-b from-white/80 via-white/60 to-white/80 dark:from-black/80 dark:via-black/85 dark:to-black/80 py-4`}>
+        <nav className={`w-full z-50 sticky top-0 transition-all duration-300 ${show ? 'translate-y-0' : '-translate-y-full'} pointer-events-auto bg-gradient-to-b from-white/80 via-white/60 to-white/80 dark:from-black/80 dark:via-black/85 dark:to-black/80 py-2 sm:py-4`}>
             <div className="max-w-7xl mx-auto flex items-center justify-between px-4 relative">
                 {/* Left: Menu Links */}
                 <div className="flex items-center gap-2 md:gap-6">
@@ -47,12 +47,6 @@ export default function SnapsNavbar() {
                                 <FaHome className="w-5 h-5" />
                             </a>
                             <span className="text-xs mt-1 text-gray-500 dark:text-gray-400">Home</span>
-                        </li>
-                        <li className="flex flex-col items-center">
-                            <span className="font-semibold text-gray-700 dark:text-gray-300 cursor-default" aria-label="Blogs">
-                                <FaRegNewspaper className="w-5 h-5" />
-                            </span>
-                            <span className="text-xs mt-1 text-gray-500 dark:text-gray-400">Blogs</span>
                         </li>
                     </ul>
                     {/* Mobile menu dropdown */}
@@ -78,7 +72,7 @@ export default function SnapsNavbar() {
                     <img
                         src="/snaps/irtesnaps.png"
                         alt="irtesnaps logo"
-                        className="h-10 sm:h-20 w-56 object-contain drop-shadow-xl rounded-2xl bg-transparent p-0 transition-all duration-300"
+                        className="h-16 sm:h-20 w-56 object-contain drop-shadow-xl rounded-2xl bg-transparent p-0 transition-all duration-300"
                         style={{ boxShadow: 'none', border: 'none', background: 'transparent' }}
                     />
                 </div>

@@ -18,7 +18,7 @@ export default function Hero() {
                 width={1080}
                 height={1920}
                 priority
-                className="md:hidden fixed left-0 top-0 w-full h-full object-cover opacity-10 dark:opacity-35 z-0"
+                className="md:hidden fixed left-0 top-0 w-full h-full object-cover opacity-10 dark:opacity-30 z-0"
                 style={{ inset: 0 }}
             />
 
@@ -52,12 +52,12 @@ export default function Hero() {
                     {/* Mobile: Horizontal layout */}
                     <div className="flex justify-between items-center gap-0 md:hidden">
                         <div className="text-center flex-1">
-                            <div className="text-2xl font-bold dark:text-purple text-[#b06ee9]">500+</div>
-                            <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Contributions</div>
+                            <div className="text-2xl font-bold dark:text-purple text-[#b06ee9]">10+</div>
+                            <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Projects</div>
                         </div>
                         <div className="text-center flex-1">
-                            <div className="text-2xl font-bold dark:text-purple text-[#b06ee9]">7+</div>
-                            <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Projects</div>
+                            <div className="text-2xl font-bold dark:text-purple text-[#b06ee9]">500+</div>
+                            <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Contributions</div>
                         </div>
                         <div className="text-center flex-1">
                             <div className="text-2xl font-bold dark:text-purple text-[#b06ee9]">2k+</div>
@@ -68,12 +68,12 @@ export default function Hero() {
                     {/* Desktop: Vertical layout */}
                     <div className="hidden md:grid grid-cols-1 gap-3 text-center">
                         <div className="flex flex-col">
-                            <span className="text-2xl lg:text-3xl font-bold dark:text-purple text-[#b06ee9]">500+</span>
-                            <span className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-medium">GitHub Contributions</span>
+                            <span className="text-2xl lg:text-3xl font-bold dark:text-purple text-[#b06ee9]">10+</span>
+                            <span className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-medium">Projects</span>
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-2xl lg:text-3xl font-bold dark:text-purple text-[#b06ee9]">7+</span>
-                            <span className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-medium">Projects Completed</span>
+                            <span className="text-2xl lg:text-3xl font-bold dark:text-purple text-[#b06ee9]">500+</span>
+                            <span className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-medium">Contributions</span>
                         </div>
                         <div className="flex flex-col">
                             <span className="text-2xl lg:text-3xl font-bold dark:text-purple text-[#b06ee9]">2k+</span>
