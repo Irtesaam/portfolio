@@ -1,0 +1,1 @@
+This folder previously contained loader-related files (home-loader-wrapper.tsx, page-loader.tsx) that are no longer needed. Safe to delete if empty.

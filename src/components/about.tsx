@@ -5,44 +5,44 @@ export function About() {
     const testimonials = [
         {
             quote:
-                "I am currently a Pre-final year student pursuing Bachelor's in Civil Engineering at National Institute of Technology, Hamirpur.",
-            name: "Education",
-            designation: "2022-present",
+                "I am a final-year B.Tech student at NIT Hamirpur with a background in Civil Engineering, but my work and aspirations have always belonged to the world of computing. Today, I build secure full-stack web & mobile applications and contribute to open-source projects. Committed to continuous learning, I’m actively transitioning into the IT industry with a long-term focus on Penetration Testing.",
+            name: "Overview",
+            designation: "B.Tech (2022-Present)",
             src: "/about/ab1.webp",
         },
         {
             quote:
-                "As a Frontend Developer, my work lies at the intersection of design and development. I have experience with Next.js and MERN Stack, and is adept at debugging issues and implementing innovative solutions. My portfolio highlights my ability to combine creativity with technical skills, ensuring a seamless user experience.",
-            name: "Web Developer",
-            designation: "MERN Stack",
+                "As a Full-Stack Developer, I work across both web and mobile apps focusing on performance and clean design. I have hands-on experience with the MERN stack, Next.js, and React Native, and I'm adept at debugging issues. I actively contribute to open-source events like Hacktoberfest and GSSoC, and my portfolio reflects a balance of creativity and code for seamless user experiences across devices.",
+            name: "Developer",
+            designation: "Web & Mobile Apps",
             src: "/about/ab2.webp",
         },
         {
             quote:
-                "What started as a casual interest has evolved into something I truly cherish, making the most of every moment I dedicate to it. My knack for timing the shot with precision and the keen eye for composition have cultivated a strong sense of patience and focus within me. Three years on, and I remain in debt of Photography for choosing me.",
+                "What started as a casual interest has evolved into something I truly cherish, making the most of every moment I dedicate to it. My knack for timing the shot with precision and the keen eye for composition have cultivated a strong sense of patience and focus within me. Three years in, and I still feel grateful that photography found me when it did. To see more of my work, head over to the Gallery section of this page.",
             name: "Photographer",
             designation: "Canon 200D II",
             src: "/about/ab3.webp",
         },
         {
             quote:
-                "The human ingenuity of teaching a rock to think has always sparked my curiosity but what excites me even more is the idea of bending it to my will. This fascination extends to my work with Linux OS in VMs where I actively explore topics like Open Source Intelligence, Malwares Analysis, Reverse engineering or Information Security in general.",
+                "The human ingenuity of teaching a rock to think has always fascinated me — but what excites me even more is the challenge of bending it to my will. This curiosity fuels my exploration of Open Source Intelligence, Malware Analysis, Reverse Engineering, and Information Security as a whole which I deep-dive into through Linux-based virtual environments using QEMU-KVM or VMware.",
             name: "InfoSec",
             designation: "Penetration Testing",
             src: "/about/ab4.webp",
         },
         {
             quote:
-                "Each of us has a 'Bunny' somewhere deep within, but only a few have the courage to set it free. With that said, I have been to over 10 Indian States and 20+ cities capturing serene landscape and restless streets of our country. However, the place that holds a special place in my heart is Kashmir — the very first trip I ever took, and that changed me forever.",
+                "There’s a 'Bunny' buried in all of us — a wild, restless spark waiting to roam free. For me, travel became its outlet. I’ve wandered through over 10 Indian states and 20+ cities, capturing everything from serene landscape to the pulse of streets through my lens. Each journey tells a story, but Kashmir will always be the prologue — my first escape, and the one that changed me forever.",
             name: "Traveller",
             designation: "The Best of my hobby",
             src: "/about/ab5.webp",
         },
         {
             quote:
-                "I have Acer Predator Helios Neo 16 with i7-13700HX, 16GB RAM, 6GB Nvidia RTX 4050, 1TB SSD, 1TB external SSD (photographer needs ?) and its dual booted with Ubuntu 24.04 alongside Windows 11. I always love to tweak the system settings and try out new things. My Blog page will be added soon where you can read about my digital adventures.",
-            name: "Random Fact",
-            designation: "My System Setup",
+                "I use an Acer Predator Helios Neo 16 powered by an i7-13700HX, 16GB RAM, and an RTX 4050 (6GB), with dual storage — 1TB internal and 1TB external SSD — to support both my development work and photography needs. It's dual-booted with Ubuntu 24.10 alongside Windows 11. A blog page is coming soon, where I’ll be writing about both digital and travel adventures.",
+            name: "Workstation",
+            designation: "My Setup",
             src: "/about/ab6.webp",
         },
     ];
