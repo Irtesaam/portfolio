@@ -5,6 +5,34 @@ import { Timeline } from "./ui/timeline";
 export function Experience() {
     const data = [
         {
+            title: "2025",
+            content: (
+                <div>
+                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
+                        This year marked my deep dive into system-level programming, where I began exploring the inner workings of the Linux OS and kernel interfaces. Motivated by the lack of support for my laptop’s proprietary features on Linux, I started reverse engineering PredatorSense Acer’s Windows utility to build a native Linux alternative. This project sharpened my understanding of C Programming, hardware-level abstraction, and the Linux device driver model. It also sparked my growing interest in firmware analysis and reverse engineering closed-source binaries to give Linux users better control over their own hardware.
+                    </p>
+                    <div className="grid grid-cols-2 gap-4">
+                        <Image
+                            src="/experience/e7.webp"
+                            draggable={false}
+                            alt="startup template"
+                            width={500}
+                            height={500}
+                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+                        />
+                        <Image
+                            src="/experience/e6.webp"
+                            draggable={false}
+                            alt="startup template"
+                            width={500}
+                            height={500}
+                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
+                        />
+                    </div>
+                </div>
+            ),
+        },
+        {
             title: "2024",
             content: (
                 <div>
@@ -33,7 +61,7 @@ export function Experience() {
             ),
         },
         {
-            title: "Early 2023",
+            title: "2023",
             content: (
                 <div>
                     <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -61,57 +89,16 @@ export function Experience() {
                 </div>
             ),
         },
-        {
-            title: "Changelog",
-            content: (
-                <div>
-                    <div className="mb-8">
-                        <div className="flex gap-2 items-center text-neutral-800 dark:text-neutral-300 text-xs md:text-sm">
-                            ✅ Learned Next.js which changed my Web Development flow completely.
-                        </div>
-                        <div className="flex gap-2 items-center text-neutral-800 dark:text-neutral-300 text-xs md:text-sm">
-                            ✅ Completed Google Cybersecurity Professional Certificate.
-                        </div>
-                        <div className="flex gap-2 items-center text-neutral-800 dark:text-neutral-300 text-xs md:text-sm">
-                            ✅ Currently working on building PredatorSense app for Linux using Reverse Engineering.
-                        </div>
-                        <div className="flex gap-2 items-center text-neutral-800 dark:text-neutral-300 text-xs md:text-sm">
-                            ✅ Getting a grip on x86_64 assembly language to interpret the inner workings of code.
-                        </div>
-                        <div className="flex gap-2 items-center text-neutral-800 dark:text-neutral-300 text-xs md:text-sm">
-                            ✅ Exploring Shell Scripting for automating Linux tasks.
-                        </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                        <Image
-                            src="/experience/e5.webp"
-                            draggable={false}
-                            alt="hero template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="/experience/e6.webp"
-                            draggable={false}
-                            alt="feature template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                    </div>
-                </div>
-            ),
-        },
     ];
 
     return (
         <div className='py-10' id='experience'>
             <h1 className='heading'>
-                Experience in {' '}
-                <span className='dark:text-purple text-[#b06ee9]'>Tech</span>
+                <span className='dark:text-purple text-[#b06ee9]'>$</span>
+                {' '}history
+                {/* journalctl --user */}
             </h1>
-            <div className="w-full py-10">
+            <div className="w-[88vw] py-10">
                 <Timeline data={data} />
             </div>
         </div>

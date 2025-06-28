@@ -1,170 +1,82 @@
 "use client";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
+// SpotlightCard: A modern card with a spotlight hover effect
 export const PinContainer = ({
-    children,
-    title,
-    href,
-    className,
-    containerClassName,
+  children,
+  className,
+  containerClassName,
+  title,
+  href,
 }: {
-    children: React.ReactNode;
-    title?: string;
-    href?: string;
-    className?: string;
-    containerClassName?: string;
+  children: React.ReactNode;
+  className?: string;
+  containerClassName?: string;
+  title?: string;
+  href?: string;
 }) => {
-    const [transform, setTransform] = useState(
-        "translate(-50%,-50%) rotateX(0deg)"
-    );
+  const cardRef = useRef<HTMLDivElement>(null);
 
-    const onMouseEnter = () => {
-        setTransform("translate(-50%,-50%) rotateX(40deg) scale(0.8)");
-    };
-    const onMouseLeave = () => {
-        setTransform("translate(-50%,-50%) rotateX(0deg) scale(1)");
-    };
+  // Mouse move handler for spotlight effect
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty("--spotlight-x", `${x}px`);
+    card.style.setProperty("--spotlight-y", `${y}px`);
+  };
 
-    return (
-        <Link
-            className={cn(
-                "relative group/pin z-5  cursor-pointer",
-                containerClassName
-            )}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            href={href || "/"}
-            target={"_blank"}
-        >
-            <div
-                style={{
-                    perspective: "1000px",
-                    transform: "rotateX(70deg) translateZ(0deg)",
-                }}
-                className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
-            >
-                <div
-                    style={{
-                        transform: transform,
-                    }}
-                    className="absolute left-1/2 p-4 top-1/2  flex justify-start items-start  rounded-2xl  shadow-[0_8px_16px_rgb(0_0_0/0.4)] border border-white/[0.1] group-hover/pin:border-white/[0.2] transition duration-700 overflow-hidden"
-                >
-                    <div className={cn(" relative z-5 ", className)}>{children}</div>
-                </div>
+  // Mouse leave handler to reset spotlight
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    if (!card) return;
+    card.style.setProperty("--spotlight-x", `-999px`);
+    card.style.setProperty("--spotlight-y", `-999px`);
+  };
+
+  return (
+    <a
+      href={href || "/"}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={cn("block group", containerClassName)}
+    >
+      <div
+        ref={cardRef}
+        className={cn(
+          "relative overflow-hidden rounded-2xl bg-zinc-900/80 border border-zinc-700 shadow-lg transition-transform duration-300 group-hover:scale-[1.03]",
+          "before:pointer-events-none before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-radial before:from-white/20 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 group-hover:before:opacity-100",
+          className
+        )}
+        style={{
+          // @ts-ignore
+          '--spotlight-x': '-999px',
+          '--spotlight-y': '-999px',
+        }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        {/* Spotlight effect */}
+        <div
+          className="pointer-events-none absolute left-0 top-0 h-full w-full"
+          style={{
+            background:
+              'radial-gradient(600px circle at var(--spotlight-x) var(--spotlight-y), rgba(255,255,255,0.08), transparent 60%)',
+            zIndex: 1,
+          }}
+        />
+        <div className="relative z-10 p-6 flex flex-col h-full">
+          {title && (
+            <div className="mb-2 text-xs font-semibold text-zinc-300/80 tracking-wide">
+              {title}
             </div>
-            <PinPerspective title={title} href={href} />
-        </Link>
-    );
-};
-
-
-export const PinPerspective = ({
-    title,
-    // href,
-}: {
-    title?: string;
-    href?: string;
-}) => {
-    return (
-        <motion.div className="pointer-events-none  w-full h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-[60] transition duration-500">
-            <div className=" w-full h-full -mt-7 flex-none  inset-0">
-                <div className="top-0 inset-x-0 justify-center relative flex space-x-2 items-center z-5 rounded-full dark:bg-slate-900 bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10">
-                    {/* <a
-                        href={href}
-                        target={"_blank"}
-                        className="relative flex space-x-2 items-center z-10 rounded-full dark:bg-slate-900 bg-zinc-950 py-0.5 px-4 ring-1 ring-white/10 "
-                    > */}
-
-                    {/*  The above part is casuing hydration error as the <a> is rendered within <Link> tag. Remove after testing */  }
-                        <span className="relative z-5 text-white text-xs font-bold inline-block py-0.5">
-                            {title}
-                        </span>
-
-                        <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover/btn:opacity-40"></span>
-                    {/* </a> */}
-                </div>
-
-                <div
-                    style={{
-                        perspective: "1000px",
-                        transform: "rotateX(70deg) translateZ(0)",
-                    }}
-                    className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
-                >
-                    <>
-                        <motion.div
-                            initial={{
-                                opacity: 0,
-                                scale: 0,
-                                x: "-50%",
-                                y: "-50%",
-                            }}
-                            animate={{
-                                opacity: [0, 1, 0.5, 0],
-                                scale: 1,
-
-                                z: 0,
-                            }}
-                            transition={{
-                                duration: 6,
-                                repeat: Infinity,
-                                delay: 0,
-                            }}
-                            className="absolute left-1/2 top-1/2  h-[11.25rem] w-[11.25rem] rounded-[50%] bg-sky-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
-                        ></motion.div>
-                        <motion.div
-                            initial={{
-                                opacity: 0,
-                                scale: 0,
-                                x: "-50%",
-                                y: "-50%",
-                            }}
-                            animate={{
-                                opacity: [0, 1, 0.5, 0],
-                                scale: 1,
-
-                                z: 0,
-                            }}
-                            transition={{
-                                duration: 6,
-                                repeat: Infinity,
-                                delay: 2,
-                            }}
-                            className="absolute left-1/2 top-1/2  h-[11.25rem] w-[11.25rem] rounded-[50%] bg-sky-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
-                        ></motion.div>
-                        <motion.div
-                            initial={{
-                                opacity: 0,
-                                scale: 0,
-                                x: "-50%",
-                                y: "-50%",
-                            }}
-                            animate={{
-                                opacity: [0, 1, 0.5, 0],
-                                scale: 1,
-
-                                z: 0,
-                            }}
-                            transition={{
-                                duration: 6,
-                                repeat: Infinity,
-                                delay: 4,
-                            }}
-                            className="absolute left-1/2 top-1/2  h-[11.25rem] w-[11.25rem] rounded-[50%] bg-sky-500/[0.08] shadow-[0_8px_16px_rgb(0_0_0/0.4)]"
-                        ></motion.div>
-                    </>
-                </div>
-
-                <>
-                    <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-cyan-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40 blur-[2px]" />
-                    <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-cyan-500 translate-y-[14px] w-px h-20 group-hover/pin:h-40  " />
-                    <motion.div className="absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-cyan-600 translate-y-[14px] w-[4px] h-[4px] rounded-full z-5 blur-[3px]" />
-                    <motion.div className="absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-cyan-300 translate-y-[14px] w-[2px] h-[2px] rounded-full z-5 " />
-                </>
-            </div>
-        </motion.div>
-    );
+          )}
+          {children}
+        </div>
+      </div>
+    </a>
+  );
 };

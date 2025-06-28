@@ -12,8 +12,8 @@ export function Contact() {
     return (
         <div className='py-20' id='contact'>
             <h1 className='heading px-5'>
-                Contact {' '}
-                <span className='dark:text-purple text-[#b06ee9]'>Me</span>
+                <span className='dark:text-purple text-[#b06ee9]'>$</span>
+                {' '}ping
             </h1>
             <div className='relative flex sm:flex-row flex-col sm:space-y-0 space-y-2 items-center justify-center mt-10 space-x-4'>
                 <a href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=atfimdirtesaam@gmail.com" target="__blank" rel="noopener noreferrer" className="pl-3 sm:pl-0">

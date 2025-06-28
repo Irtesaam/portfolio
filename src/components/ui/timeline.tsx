@@ -18,14 +18,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
     useEffect(() => {
         if (ref.current) {
-            const rect = ref.current.getBoundingClientRect();
-            setHeight(rect.height);
+            // Use scrollHeight to get the full content height, not just the visible height
+            setHeight(ref.current.scrollHeight);
         }
-    }, [ref]);
+    }, [ref, data]);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start 10%", "end 50%"],
+        offset: ["start 0%", "end 100%"], // Animate for the full timeline height
     });
 
     const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);

@@ -49,7 +49,7 @@ export default function Heading({ galleryRef }: { galleryRef: React.RefObject<HT
                     <p className="mt-2 text-sm xs:text-base md:text-lg text-gray-700 dark:text-gray-300 w-full max-w-md font-[Quicksand]" style={{ fontFamily: 'Quicksand, sans-serif' }}>
                         I’m a photographer and student based in India, drawn to capturing honest, unscripted moments. My style blends street, portrait, and documentary photography, with a focus on mood, emotion, and natural light. Whether it’s gritty city textures or quiet, candid expressions, I aim for authenticity over perfection.
 
-                        All the images on this site come from my travels — raw, personal, and unplanned. Every shot is a reflection of what I’ve seen and felt along the way. I shoot with a Canon 200D II, using an 18–55mm kit lens and a 50mm prime — lightweight, versatile, and perfect for the way I work.
+                        All the images on this site come from my travels — raw, personal, and unplanned. Every shot is a reflection of what I’ve seen and felt along the way. Three years in, and I still feel grateful that photography found me when it did. I shoot with a Canon 200D II, using an 18–55mm kit lens and a 50mm prime — lightweight, versatile, and perfect for the way I work.
 
 
                     </p>
@@ -58,7 +58,7 @@ export default function Heading({ galleryRef }: { galleryRef: React.RefObject<HT
             {/* Downward Arrow Icon */}
             <button
                 onClick={handleArrowClick}
-                className="absolute bottom-20 left-1/2 -translate-x-1/2 z-20 rounded-full p-2 shadow-lg transition pointer-events-auto bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent"
+                className="absolute bottom-[6rem] md:bottom-[6rem] left-1/2 -translate-x-1/2 z-20 rounded-full p-2 shadow-lg transition pointer-events-auto bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent"
                 aria-label="Scroll to gallery image section"
             >
                 <Image

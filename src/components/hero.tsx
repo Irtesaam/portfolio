@@ -2,7 +2,6 @@ import { FaLocationArrow } from 'react-icons/fa'
 import { RiDownloadFill } from 'react-icons/ri'
 import ButtonMagic from './ui/buttons/button-magic'
 import { Spotlight } from './ui/spotlight'
-import { TextGenerateEffect } from './ui/text-generate-effect'
 import TypingAnimation from './ui/typing-animation'
 import Image from 'next/image'
 import { DecryptedText } from './ui/decrypted-text'
@@ -56,12 +55,12 @@ export default function Hero() {
                             <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Projects</div>
                         </div>
                         <div className="text-center flex-1">
-                            <div className="text-2xl font-bold dark:text-purple text-[#b06ee9]">500+</div>
-                            <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Contributions</div>
+                            <div className="text-2xl font-bold dark:text-purple text-[#b06ee9]">80k+</div>
+                            <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Lines of Code</div>
                         </div>
                         <div className="text-center flex-1">
-                            <div className="text-2xl font-bold dark:text-purple text-[#b06ee9]">2k+</div>
-                            <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Hours</div>
+                            <div className="text-2xl font-bold dark:text-purple text-[#b06ee9]">1k+</div>
+                            <div className="text-xs text-gray-700 dark:text-gray-300 font-medium">Contributions</div>
                         </div>
                     </div>
 
@@ -72,12 +71,12 @@ export default function Hero() {
                             <span className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-medium">Projects</span>
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-2xl lg:text-3xl font-bold dark:text-purple text-[#b06ee9]">500+</span>
-                            <span className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-medium">Contributions</span>
+                            <span className="text-2xl lg:text-3xl font-bold dark:text-purple text-[#b06ee9]">80k+</span>
+                            <span className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-medium">Lines of Code</span>
                         </div>
                         <div className="flex flex-col">
-                            <span className="text-2xl lg:text-3xl font-bold dark:text-purple text-[#b06ee9]">2k+</span>
-                            <span className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-medium">Hours Worked</span>
+                            <span className="text-2xl lg:text-3xl font-bold dark:text-purple text-[#b06ee9]">1k+</span>
+                            <span className="text-xs lg:text-sm text-gray-700 dark:text-gray-300 font-medium">Contributions</span>
                         </div>
                     </div>
                 </div>
@@ -85,31 +84,28 @@ export default function Hero() {
 
             <div className='flex flex-col items-center justify-center relative z-5 my-20 mt-32'>
                 <div className='max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center'>
-                    <h2 className='uppercase tracking-widest text-xs text-center dark:text-blue-100 text-blue-950 max-w-80 mb-2'>Welcome to my portfolio website</h2>
+                    <h2 className='uppercase tracking-widest text-xs text-center dark:text-blue-100 text-blue-950 max-w-80 mb-2'>Welcome to my developer portfolio</h2>
                 </div>
 
                 <DecryptedText
-                    text="Hi! I am Irtesaam Atfi"
-                    className="text-center text-[32px] md:text-5xl lg:text-7xl font-bold my-4"
+                    text="Hey! I am Irtesaam Atfi"
+                    className="text-center text-[29px] md:text-1xl lg:text-6xl font-bold my-4"
                     duration={1200}
                 />
 
-                {/* <TextGenerateEffect
-                    words="Hi! I am Irtesaam Atfi"
-                    className="text-center text-[40px] md:text-5xl lg:text-7xl"
-                /> */}
-
-                <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-lg">
+                <p className="text-center md:tracking-wider mb-4 text-xs md:text-base lg:text-lg">
                     <TypingAnimation
                         roles={[
-                            "Full-Stack MERN & React-Native Developer",
-                            "Street & Travel Photographer",
-                            "InfoSec Explorer & OSINT Enthusiast"
+                            "Full-Stack MERN Developer",
+                            "React Native Mobile Developer",
+                            "Open Source Contributor",
+                            "OSINT Researcher",
+                            "I build stuff, I ship code & I explore security."
                         ]}
-                        className="font-medium"
-                        typingSpeed={80}
-                        pauseDuration={1500}
-                        deletingSpeed={40}
+                        className="font-bold text-base md:text-xl lg:text-2xl font-mono text-[#b06ee9] dark:text-[#cbacf9] shadow-sm"
+                        typingSpeed={60}
+                        pauseDuration={1700}
+                        deletingSpeed={10}
                     />
                 </p>
                 <div className='relative flex items-center justify-center mt-10 space-x-4 z-20'>
