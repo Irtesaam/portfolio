@@ -11,11 +11,11 @@ export default function Home() {
         <main className="relative dark:bg-black bg-white flex justify-center items-center flex-col overflow-hidden mx-auto w-full">
             <SpeedInsights />
             <ThemeToggle />
-            <FloatingNav navItems={navItems} className="hidden md:flex" />
+            {/* <FloatingNav navItems={navItems} className="hidden md:flex" /> */}
             <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-black">
                 <SplashDialog />
             </div>
-            <FloatingDockDemo />
+            {/* <FloatingDockDemo /> */}
         </main>
     );
 }
