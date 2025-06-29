@@ -6,7 +6,6 @@ import Projects from "@/components/projects";
 import { navItems } from "@/data";
 import { About } from "@/components/about";
 import { Experience } from "@/components/experience";
-import { Gallery, Headings } from "@/components/gallery";
 import { Contact } from "@/components/contact";
 import Footer from "@/components/footer";
 import { FloatingDockDemo } from "@/components/mobile-dock";
@@ -22,8 +21,6 @@ export default function DevPortfolio() {
             <About />
             <Projects />
             <Experience />
-            {/* <Headings /> */}
-            {/* <Gallery /> */}
             <Contact />
             <Footer />
             <FloatingDockDemo />

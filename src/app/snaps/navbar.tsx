@@ -1,5 +1,5 @@
 import React from "react";
-import { FaUser, FaHome, FaRegNewspaper, FaInstagram, FaHeart } from "react-icons/fa";
+import { FaHome, FaRegNewspaper, FaInstagram, FaHeart } from "react-icons/fa";
 
 export default function SnapsNavbar() {
     const [open, setOpen] = React.useState(false);

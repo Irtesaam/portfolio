@@ -32,7 +32,6 @@ const LOCATIONS = [
 export default function ImageMasonry() {
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [mounted, setMounted] = useState(false);
     const [selectedLocation, setSelectedLocation] = useState<string>('');
     const [selectedTag, setSelectedTag] = useState<string>('Favourites');

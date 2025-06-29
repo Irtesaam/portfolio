@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import ThemeToggle from "@/components/toggle-theme";
 import { FloatingNav } from "@/components/ui/floating-nav";
 import { navItems } from "@/data";

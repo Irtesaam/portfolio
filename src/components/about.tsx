@@ -7,7 +7,7 @@ export function About() {
                 "I am a final-year B.Tech student at NIT Hamirpur with a background in Civil Engineering, but my work and aspirations have always belonged to the world of computing. Today, I build secure full-stack web & mobile applications and contribute to open-source projects. Committed to continuous learning, I’m actively transitioning into the IT industry with a long-term focus on Penetration Testing.",
             name: "Overview",
             designation: "B.Tech (2022-Present)",
-            src: "/about/ab1.jpeg",
+            src: "/about/ab1.webp",
         },
         {
             quote:

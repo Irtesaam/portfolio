@@ -36,7 +36,10 @@ export default function Projects() {
             <div className="flex items-center justify-center px-5 mb-2">
                 <h1 className='heading w-full text-center'>
                     <span className='dark:text-purple text-[#b06ee9]'>$</span>
-                    {' '}ls ~/projects
+                    {' '}code .
+                    {/* {' '}ls ~/projects */}
+                    {/* build --projects */}
+                    {/* ./projects */}
                 </h1>
             </div>
             <div className="flex px-5 mb-8 w-full pointer-events-auto z-40 relative
@@ -46,21 +49,30 @@ export default function Projects() {
                 md:mt-6
                 md:pr-10
             ">
-                <select
-                    value={status}
-                    onChange={e => setStatus(e.target.value)}
-                    className="pointer-events-auto z-40 relative rounded-xl border ring-1 border-[#3B3F54] dark:bg-[#04071c] bg-[#f3f4f6] px-4 py-2 text-base focus:outline-none focus:ring-2 focus:ring-[#898B98] transition-colors duration-200 dark:text-white text-[#b06ee9] shadow-md"
-                >
-                    {options.map(option => (
-                        <option key={option} value={option} className="dark:bg-[#04071c] bg-[#f3f4f6] text-[#b06ee9] dark:text-white">
-                            {option.charAt(0).toUpperCase() + option.slice(1)}
-                        </option>
-                    ))}
-                </select>
+                <div className="w-full flex justify-center px-4 mb-8 mt-8">
+                    <select
+                        value={status}
+                        onChange={e => setStatus(e.target.value)}
+                        className="rounded-xl border border-[#3B3F54] dark:bg-[#0f172a] bg-[#f3f4f6] px-4 py-2 text-base focus:outline-none focus:ring-2 focus:ring-[#898B98] transition-colors duration-200 dark:text-white text-black shadow-md"
+                    >
+                        {options.map((option, idx) => (
+                            <option
+                                key={option}
+                                value={option}
+                                className={`dark:bg-[#04071c] bg-[#f3f4f6] text-black dark:text-white ${idx !== options.length - 1 ? "border-b border-[#3B3F54]" : ""
+                                    }`}
+                            >
+                                {option.charAt(0).toUpperCase() + option.slice(1)}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+
+
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10 p-20 justify-items-center">
-                {projects.filter(project => project.status === status).map(({ id, title, des, img, link, iconLists }) => (
-                    <div key={id} className='flex items-center justify-center sm:w-[460px] w-[90vw] m-0'>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 px-4 sm:px-10 md:px-12 lg:px-16">
+                {projects.filter(project => project.status === status).map(({ id, title, des, link, iconLists }) => (
+                    <div key={id} className="w-full max-w-[460px] min-w-0">
                         <SpotlightCard>
                             {/* Removed images here */}
                             <h1 className='font-bold lg:text-xl md:text-xl text-base line-clamp-1 mb-2'>
@@ -77,14 +89,14 @@ export default function Projects() {
                                     rel="noopener noreferrer"
                                     className='flex items-center dark:text-purple text-[#b06ee9] lg:text-sm md:text-xs text-xs'
                                 >
-                                    <span>Visit GitHub Repo</span>
+                                    <span>GitHub</span>
                                     <FaLocationArrow className='ms-3' color='#CBACF9' />
                                 </a>
                                 {/* Icons on the right, much smaller, with safe gap */}
                                 <div className='flex gap-3 ms-6'>
                                     {iconLists && iconLists.map((iconName: string, idx: number) => {
                                         const Icon = iconMap[iconName as keyof typeof iconMap];
-                                        return Icon ? <Icon key={idx} size={14} className='text-black dark:text-white' /> : null;
+                                        return Icon ? <Icon key={idx} size={13} className='text-black dark:text-white' /> : null;
                                     })}
                                 </div>
                             </div>

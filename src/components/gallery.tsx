@@ -1,12 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import Link from "next/link";
 
 export function Gallery() {
-    const [loading, setLoading] = useState(false);
     const handleViewAll = (e: React.MouseEvent) => {
         e.preventDefault();
         window.location.href = "/snaps";
