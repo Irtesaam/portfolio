@@ -1,3 +1,5 @@
+"use client";
+
 import { projects } from '@/data'
 import React, { useState } from 'react'
 import SpotlightCard from './ui/spotlight-card'
