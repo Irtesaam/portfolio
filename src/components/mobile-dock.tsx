@@ -3,7 +3,6 @@
 import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
-    IconCamera,
     IconFileCv,
     IconHome,
     IconMessages,
@@ -43,13 +42,6 @@ export function FloatingDockDemo() {
             href: "#experience",
         },
 
-        {
-            title: "Gallery",
-            icon: (
-                <IconCamera className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-            ),
-            href: "#gallery",
-        },
         {
             title: "Contact",
             icon: (

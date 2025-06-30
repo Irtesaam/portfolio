@@ -5,8 +5,11 @@ import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import Link from "next/link";
 
-
 export function Gallery() {
+    const handleViewAll = (e: React.MouseEvent) => {
+        e.preventDefault();
+        window.location.href = "/snaps";
+    };
     return (
         <div className='flex flex-col sm:flex-row gap-5'>
             <CardContainer className="inter-var">
@@ -46,9 +49,9 @@ export function Gallery() {
                         </CardItem>
                         <CardItem
                             translateZ={20}
-                            as={Link}
-                            href="/second-page"
-                            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                            as="button"
+                            onClick={handleViewAll}
+                            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold cursor-pointer"
                         >
                             View All
                         </CardItem>
@@ -93,9 +96,9 @@ export function Gallery() {
                         </CardItem>
                         <CardItem
                             translateZ={20}
-                            as={Link}
-                            href="/second-page"
-                            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                            as="button"
+                            onClick={handleViewAll}
+                            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold cursor-pointer"
                         >
                             View All
                         </CardItem>
@@ -140,9 +143,9 @@ export function Gallery() {
                         </CardItem>
                         <CardItem
                             translateZ={20}
-                            as={Link}
-                            href="/second-page"
-                            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                            as="button"
+                            onClick={handleViewAll}
+                            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold cursor-pointer"
                         >
                             View All
                         </CardItem>

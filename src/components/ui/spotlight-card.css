@@ -1,0 +1,14 @@
+.card-spotlight {
+  position: relative;
+  border-radius: 1.5rem;
+  border: 1px solid #222;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* Light mode support */
+@media (prefers-color-scheme: light) {
+  .card-spotlight {
+    background-color: #f3f4f6;
+  }
+}

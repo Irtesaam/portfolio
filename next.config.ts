@@ -13,13 +13,23 @@ const nextConfig: NextConfig = {
         appIsrStatus: false,
     },
     images: {
-        domains: ['res.cloudinary.com', 'images.unsplash.com'],
         remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "res.cloudinary.com",
+            },
+            {
+                protocol: "https",
+                hostname: "images.unsplash.com",
+            },
             {
                 protocol: "https",
                 hostname: "assets.aceternity.com",
             },
         ],
+         domains: [
+      "api.microlink.io", // Microlink Image Preview
+    ],
     },
 };
 

@@ -3,7 +3,7 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 type Testimonial = {
     quote: string;
@@ -14,7 +14,7 @@ type Testimonial = {
 
 export const AnimatedTestimonials = ({
     testimonials,
-    autoplay = true,
+    // autoplay = true,
 }: {
     testimonials: Testimonial[];
     autoplay?: boolean;
@@ -33,12 +33,12 @@ export const AnimatedTestimonials = ({
         return index === active;
     };
 
-    useEffect(() => {
-        if (autoplay) {
-            const interval = setInterval(handleNext, 7000);
-            return () => clearInterval(interval);
-        }
-    }, [autoplay, handleNext]);
+    // useEffect(() => {
+    //     if (autoplay) {
+    //         const interval = setInterval(handleNext, 1000);
+    //         return () => clearInterval(interval);
+    //     }
+    // }, [autoplay, handleNext]);
 
     const randomRotateY = (index: number) => {
         const values = [-6, -3, 0, 3, 6]; // Predefined deterministic values
@@ -47,9 +47,9 @@ export const AnimatedTestimonials = ({
 
     return (
         <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 pt-20 pb-10">
-            <div className="relative grid grid-cols-1 xl:grid-cols-2 gap-20">
+            <div className="relative grid md:grid-cols-2 grid-cols-1 gap-10">
                 <div>
-                    <div className="relative h-80 w-full md:h-96 md:w-96 rounded-3xl">
+                    <div className="relative aspect-[4/5] sm:aspect-[1/1] md:aspect-[2/3] lg:aspect-[4/5] xl:aspect-[1/1] w-full max-w-[360px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[500px] xl:max-w-[550px] mx-auto rounded-3xl">
                         <AnimatePresence>
                             {testimonials.map((testimonial, index) => (
                                 <motion.div
@@ -85,31 +85,14 @@ export const AnimatedTestimonials = ({
                                     <Image
                                         src={testimonial.src}
                                         alt={testimonial.name}
-                                        width={500}
-                                        height={500}
+                                        fill // maintains aspect ratio
                                         priority={index === 0} // Enable eager loading for the first image to reduce LCP
                                         draggable={false}
-                                        className="h-full w-full rounded-3xl object-cover object-center"
+                                        className="pointer-events-none select-none h-full w-full object-cover object-center rounded-3xl"
                                     />
                                 </motion.div>
                             ))}
                         </AnimatePresence>
-                    </div>
-                    <div className="pt-0 md:pt-5 absolute right-0 xl:left-1/2 xl:ml-10">
-                        <div className="flex pt-10 gap-5 md:pt-0">
-                            <button
-                                onClick={handlePrev}
-                                className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
-                            >
-                                <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
-                            </button>
-                            <button
-                                onClick={handleNext}
-                                className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
-                            >
-                                <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
-                            </button>
-                        </div>
                     </div>
                 </div>
                 <div className="flex justify-between flex-col pt-1">
@@ -132,9 +115,28 @@ export const AnimatedTestimonials = ({
                             ease: "easeInOut",
                         }}
                     >
-                        <h3 className="text-2xl font-bold dark:text-white text-black">
-                            {testimonials[active].name}
-                        </h3>
+                        <div className="flex items-center justify-between w-full mb-2">
+                            <h3 className="text-2xl font-bold dark:text-white text-black">
+                                {testimonials[active].name}
+                            </h3>
+
+                            <div className="flex gap-2 mr-4"> {/* Adjust margin here */}
+                                <button
+                                    onClick={handlePrev}
+                                    className="h-8 w-8 rounded-full bg-[#e2e8f0] dark:bg-[#0f172a] border flex items-center justify-center group/button"
+                                >
+                                    <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
+                                </button>
+                                <button
+                                    onClick={handleNext}
+                                    className="h-8 w-8 rounded-full bg-[#e2e8f0] dark:bg-[#0f172a] border flex items-center justify-center group/button"
+                                >
+                                    <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
+                                </button>
+                            </div>
+                        </div>
+
+
                         <p className="text-sm text-gray-500 dark:text-neutral-500">
                             {testimonials[active].designation}
                         </p>

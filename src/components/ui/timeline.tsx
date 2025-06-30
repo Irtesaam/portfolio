@@ -18,14 +18,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
     useEffect(() => {
         if (ref.current) {
-            const rect = ref.current.getBoundingClientRect();
-            setHeight(rect.height);
+            // Use scrollHeight to get the full content height, not just the visible height
+            setHeight(ref.current.scrollHeight);
         }
-    }, [ref]);
+    }, [ref, data]);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start 10%", "end 50%"],
+        offset: ["start 0%", "end 100%"], // Animate for the full timeline height
     });
 
     const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
@@ -33,7 +33,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
     return (
         <div
-            className="w-full bg-gray-100 dark:bg-slate-950  border border-black-900 rounded-xl font-sans md:px-10"
+            className="w-full bg-gray-100 dark:bg-slate-950 border border-black-900 rounded-xl font-sans md:px-10"
             ref={containerRef}
         >
             <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
