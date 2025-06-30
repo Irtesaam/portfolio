@@ -1,4 +1,4 @@
-import { useRef, useState, ReactNode, MouseEvent, useEffect } from "react";
+import { useRef, useState, ReactNode, MouseEvent } from "react";
 
 type SpotlightCardProps = {
     children: ReactNode;
