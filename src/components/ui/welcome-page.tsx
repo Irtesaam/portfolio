@@ -20,13 +20,13 @@ export function BackgroundBoxes() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className={cn(
-                        "text-3xl md:text-6xl font-extrabold text-white bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-purple-500"
+                        "text-3xl md:text-6xl font-extrabold text-white bg-clip-text text-transparent bg-gradient-to-br from-blue-400 to-purple-500 tracking-widest font-mono"
                     )}
                 >
                     WELCOME TO THE MATRIX
                 </motion.h1>
 
-                <p className="mt-5 text-neutral-300 text-center text-base md:text-lg leading-relaxed">
+                <p className="mt-5 text-neutral-300 text-center text-base md:text-lg leading-relaxed font-mono">
                     <code className="text-[#3471d6] font-semibold">Blue</code> reveals how I think.
                     <br />
                     <code className="text-[#d23956] font-semibold">Red</code> reveals how I see.
@@ -63,7 +63,7 @@ export function BackgroundBoxes() {
 
 export function LinkPreviewDemo() {
     return (
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-base md:text-lg text-neutral-300">
+        <div className="font-serif flex flex-col md:flex-row items-center justify-center gap-4 text-sm md:text-base text-neutral-300">
             <LinkPreview
                 url="https://irtesnaps.in/dev"
                 className="w-40 text-center px-4 py-2 rounded-md font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:scale-110 transition-transform"

@@ -5,17 +5,45 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "./irtesaam-artistic-font.css";
 
+// Hook to detect mobile
+function useIsMobile() {
+    const [isMobile, setIsMobile] = React.useState(false);
+    React.useEffect(() => {
+        const update = () => setIsMobile(window.innerWidth < 768);
+        update();
+        window.addEventListener("resize", update);
+        return () => window.removeEventListener("resize", update);
+    }, []);
+    return isMobile;
+}
+
 export default function Heading({ galleryRef }: { galleryRef: React.RefObject<HTMLDivElement> }) {
-    // Scroll-based animation logic
+    const isMobile = useIsMobile();
     const ref = React.useRef<HTMLDivElement>(null);
+
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start start", "end start"]
     });
-    // Fade out text as soon as scrolling starts, fully hidden before image section arrives
-    const opacity = useTransform(scrollYProgress, [0, 0.4, 0.7], [1, 0, 0]);
 
-    // Handler for arrow click to scroll to image section
+    // Opacity of overlay
+    const overlayOpacity = useTransform(
+        scrollYProgress,
+        isMobile ? [0.0, 0.6, 1] : [0.0, 0.7],
+        isMobile ? [0.0, 0.02, 0.04] : [0.3, 0.6]
+    );
+
+
+
+
+    // Fade out heading content
+    const opacity = useTransform(
+        scrollYProgress,
+        isMobile ? [0, 0.6, 1] : [0, 0.4, 0.7],
+        isMobile ? [1, 0.6, 0] : [1, 0, 0]
+    );
+
+
     const handleArrowClick = () => {
         if (galleryRef?.current) {
             galleryRef.current.scrollIntoView({ behavior: "smooth" });
@@ -24,72 +52,92 @@ export default function Heading({ galleryRef }: { galleryRef: React.RefObject<HT
 
     return (
         <div id="snaps-hero" ref={ref} className="relative min-h-[100vh] w-full overflow-hidden flex flex-col items-center justify-center">
-            {/* Full-height Background Blur/Overlay */}
-            <motion.div
-                style={{ opacity: useTransform(scrollYProgress, [0, 0.7], [0.3, 1]) }}
-                className="absolute inset-0 z-0"
-            >
-                <Image src={'/projects/bg.webp'} alt={''} width={1920} height={1080} priority className="w-full h-full object-cover blur-sm" />
+            {/* Background Image and Overlay */}
+            <motion.div style={{ opacity: overlayOpacity }} className="absolute inset-0 z-0">
+                <Image
+                    src="/projects/bg.webp"
+                    alt=""
+                    width={1920}
+                    height={1080}
+                    priority
+                    className="w-full h-full object-cover blur-sm"
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/80 dark:from-black/80 dark:via-black/60 dark:to-black/80" />
             </motion.div>
-            {/* Modern Hero Section: Image left, Text right */}
+
+            {/* Hero Content */}
             <motion.div
                 style={{ opacity }}
                 className="relative z-10 flex flex-col md:flex-row items-center justify-center w-[95vw] max-w-4xl px-2 sm:w-[90vw] sm:px-4 py-4 md:py-16 gap-8 md:gap-16"
             >
-                {/* Left: Profile Image */}
+                {/* Profile Image */}
                 <div className="flex-shrink-0 flex items-center justify-center md:justify-start w-56 h-56 md:w-80 md:h-80 rounded-full overflow-hidden shadow-lg bg-white/80 dark:bg-black/80 border-4 border-purple-300 dark:border-purple-700 md:ml-[-40px] ml-0">
-                    <Image src="/about/ab1.webp" alt="Irtesaam Atfi" width={400} height={400} className="object-cover w-full h-full" priority />
+                    <Image
+                        src="/about/ab1.webp"
+                        alt="Irtesaam Atfi"
+                        width={400}
+                        height={400}
+                        className="object-cover w-full h-full"
+                        priority
+                        draggable={false}
+                        onContextMenu={e => e.preventDefault()}
+                    />
                 </div>
-                {/* Right: Name and Description */}
+
+                {/* Text */}
                 <div className="flex flex-col items-center md:items-start text-center md:text-left md:ml-8">
                     <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl tracking-widest text-black dark:text-white drop-shadow-lg mb-2 font-[Pacifico]" style={{ fontFamily: 'Pacifico, cursive', fontWeight: 400 }}>
                         Irtesaam Atfi
                     </h1>
-                    <p className="mt-2 text-sm xs:text-base md:text-lg text-gray-700 dark:text-gray-300 w-full max-w-md font-[Quicksand]" style={{ fontFamily: 'Quicksand, sans-serif' }}>
-                        I’m a photographer and student based in India, drawn to capturing honest, unscripted moments. My style blends street, portrait, and documentary photography, with a focus on mood, emotion, and natural light. Whether it’s gritty city textures or quiet, candid expressions, I aim for authenticity over perfection.
+                    <p className="mt-2 text-sm md:text-base text-gray-900 dark:text-gray-300 w-full max-w-md font-[Quicksand]" style={{ fontFamily: 'Quicksand, sans-serif' }}>
+                        I’m a photographer based in India, exploring <span className="text-slate-600 dark:text-slate-300 font-semibold">street, travel, and landscape</span> photography over the past 4 years. My work revolves around cinematic composition, lighting, and capturing the mood of each place I step into.
 
-                        All the images on this site come from my travels — raw, personal, and unplanned. Every shot is a reflection of what I’ve seen and felt along the way. Three years in, and I still feel grateful that photography found me when it did. I shoot with a Canon 200D II, using an 18–55mm kit lens and a 50mm prime — lightweight, versatile, and perfect for the way I work.
+                        What began as a casual interest has evolved into something I truly value. For me, photography isn’t just about the view — it’s about perspective. Though I now shoot with a <span className="text-slate-600 dark:text-slate-300 font-semibold">Canon 200D II</span> — typically using a 50mm prime for streets, and an 18–55mm for wider shots — most of the images on this site were originally captured on my phone, Realme GT Neo 2.
+                        That’s where it all began.
 
-
+                        This portfolio reflects an ongoing journey — testing ideas, sharpening my eye, and figuring out what makes an image feel right. Four years in, and I’m still grateful photography found me when it did.
                     </p>
                 </div>
             </motion.div>
-            {/* Downward Arrow Icon */}
+
+            {/* Down Arrow */}
             <button
                 onClick={handleArrowClick}
-                className="absolute bottom-[6rem] md:bottom-[6rem] left-1/2 -translate-x-1/2 z-20 rounded-full p-2 shadow-lg transition pointer-events-auto bg-transparent hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent"
+                className="absolute bottom-[6rem] md:bottom-[6rem] left-1/2 -translate-x-1/2 z-20 rounded-full p-2 bg-white/70 dark:bg-black/70 transition pointer-events-auto"
                 aria-label="Scroll to gallery image section"
             >
-                <Image
-                    src="/snaps/down-arrow.png"
-                    alt="Down Arrow"
-                    width={42}
-                    height={42}
-                    className="invert dark:invert-0 animate-bounce"
-                    style={{ filter: 'invert(1)' }}
-                />
+                <div className="w-[42px] h-[42px] flex items-center justify-center">
+                    <Image
+                        src="/snaps/down-arrow.png"
+                        alt="Down Arrow"
+                        width={30}
+                        height={30}
+                        className="animate-bounce dark:invert block"
+                        unoptimized
+                    />
+                </div>
             </button>
-            {/* Scroll to Top Button */}
+
             <ScrollToTopButton />
-            {/* Spacer to allow scrolling past fixed heading */}
             <div className="h-[20vh] w-full" />
         </div>
     );
 }
 
-// Scroll to Top Button component
+// Scroll to Top Button
 function ScrollToTopButton() {
     const [visible, setVisible] = React.useState(false);
     const lastScrollY = React.useRef(0);
     const [show, setShow] = React.useState(true);
     const [isMobile, setIsMobile] = React.useState(false);
+
     React.useEffect(() => {
         const checkMobile = () => setIsMobile(window.innerWidth <= 768);
         checkMobile();
-        window.addEventListener('resize', checkMobile);
-        return () => window.removeEventListener('resize', checkMobile);
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
     }, []);
+
     React.useEffect(() => {
         let ticking = false;
         const onScroll = () => {
@@ -110,10 +158,12 @@ function ScrollToTopButton() {
                 ticking = true;
             }
         };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        return () => window.removeEventListener('scroll', onScroll);
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
     }, [isMobile]);
+
     if (!visible) return null;
+
     return (
         <button
             style={{ position: 'fixed', bottom: 20, right: 20, transition: 'opacity 0.3s', opacity: show ? 1 : 0, pointerEvents: show ? 'auto' : 'none', zIndex: 50 }}

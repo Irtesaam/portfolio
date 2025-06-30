@@ -1,24 +1,38 @@
+"use client";
+import { useEffect, useState, useRef } from "react";
+import Link from "next/link";
 import React from "react";
-import { FaHome, FaRegNewspaper, FaInstagram, FaHeart } from "react-icons/fa";
+import { FaInstagram, FaHeart } from "react-icons/fa";
+import ThemeToggle from "@/components/toggle-theme";
 
 export default function SnapsNavbar() {
-    const [open, setOpen] = React.useState(false);
-    const [show, setShow] = React.useState(true);
-    const lastScroll = React.useRef(0);
+    const [show, setShow] = useState(true);
+    const lastScroll = useRef(0);
+    const [liked, setLiked] = useState(false);
+    const [animate, setAnimate] = useState(false);
 
-    React.useEffect(() => {
+    // Load saved like state
+    useEffect(() => {
+        const saved = localStorage.getItem("heart-liked");
+        if (saved === "true") {
+            setLiked(true);
+        } else {
+            setAnimate(true);
+            const timeout = setTimeout(() => setAnimate(false), 1000); // blink duration
+            return () => clearTimeout(timeout);
+        }
+    }, []);
+
+    const handleClick = () => {
+        setLiked(true);
+        localStorage.setItem("heart-liked", "true");
+    };
+
+    // Hide navbar on scroll down
+    useEffect(() => {
         const handleScroll = () => {
             const currentScroll = window.scrollY;
-            if (currentScroll <= 0) {
-                setShow(true);
-                lastScroll.current = 0;
-                return;
-            }
-            if (currentScroll > lastScroll.current) {
-                setShow(false); // scrolling down
-            } else {
-                setShow(true); // scrolling up
-            }
+            setShow(currentScroll < lastScroll.current || currentScroll <= 0);
             lastScroll.current = currentScroll;
         };
         window.addEventListener("scroll", handleScroll);
@@ -26,67 +40,32 @@ export default function SnapsNavbar() {
     }, []);
 
     return (
-        <nav className={`w-full z-50 sticky top-0 transition-all duration-300 ${show ? 'translate-y-0' : '-translate-y-full'} pointer-events-auto bg-gradient-to-b from-white/80 via-white/60 to-white/80 dark:from-black/80 dark:via-black/85 dark:to-black/80 py-2 sm:py-4`}>
+        <nav className={`w-full z-50 sticky top-0 transition-all duration-300 ${show ? 'translate-y-0' : '-translate-y-full'} pointer-events-auto bg-gradient-to-b from-gray-100 via-white to-gray-100 dark:from-black/95 dark:via-black/90 dark:to-black/95 py-2 sm:py-4`}>
             <div className="max-w-7xl mx-auto flex items-center justify-between px-4 relative">
-                {/* Left: Menu Links */}
-                <div className="flex items-center gap-2 md:gap-6">
-                    <button
-                        className="md:hidden p-2 rounded-full bg-white/0 dark:bg-black/0 border-0 shadow-none"
-                        onClick={() => setOpen((v) => !v)}
-                        aria-label="Open navigation menu"
-                    >
-                        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                            <path d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                    <ul
-                        className={`hidden md:flex flex-row items-center gap-6 transition-all duration-300`}
-                    >
-                        <li className="flex flex-col items-center">
-                            <a href="#snaps-hero" aria-label="Home" className="font-semibold text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition">
-                                <FaHome className="w-5 h-5" />
-                            </a>
-                            <span className="text-xs mt-1 text-gray-500 dark:text-gray-400">Home</span>
-                        </li>
-                    </ul>
-                    {/* Mobile menu dropdown */}
-                    <ul
-                        className={`flex flex-col md:hidden absolute left-4 right-4 top-16 z-40 bg-white/90 dark:bg-black/90 rounded-2xl px-4 py-4 shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 ${open ? '' : 'hidden'}`}
-                    >
-                        <li className="flex flex-col items-center">
-                            <a href="#snaps-hero" aria-label="Home" className="font-semibold text-gray-900 dark:text-white hover:text-purple-600 dark:hover:text-purple-400 transition">
-                                <FaHome className="w-5 h-5" />
-                            </a>
-                            <span className="text-xs mt-1 text-gray-500 dark:text-gray-400">Home</span>
-                        </li>
-                        <li className="flex flex-col items-center">
-                            <span className="font-semibold text-gray-700 dark:text-gray-300 cursor-default" aria-label="Blogs">
-                                <FaRegNewspaper className="w-5 h-5" />
-                            </span>
-                            <span className="text-xs mt-1 text-gray-500 dark:text-gray-400">Blogs</span>
-                        </li>
-                    </ul>
-                </div>
-                {/* Center: Logo/Brand - responsive position */}
-                <div className="relative pl-4 flex items-center md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:pl-0 md:pointer-events-none select-none">
+                {/* Invisible spacer to balance center logo */}
+                <div className="w-[80px] hidden md:block" />
+
+                {/* Center Logo */}
+                <div className="md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 select-none z-10">
                     <img
                         src="/snaps/irtesnaps.png"
                         alt="irtesnaps logo"
-                        className="h-16 sm:h-20 w-56 object-contain drop-shadow-xl rounded-2xl bg-transparent p-0 transition-all duration-300"
-                        style={{ boxShadow: 'none', border: 'none', background: 'transparent' }}
+                        className="h-16 sm:h-20 w-30 object-contain drop-shadow-xl rounded-2xl bg-transparent invert dark:invert-0"
                     />
                 </div>
-                {/* Right: Icons */}
-                <div className="flex items-center gap-4">
-                    <a
-                        href="https://www.instagram.com/irte.snaps"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Support / Donate"
-                        className="p-2 rounded-full hover:bg-red-100 dark:hover:bg-red-900 transition"
+
+                {/* Right Icons */}
+                <div className="flex items-center gap-1 ml-auto z-10">
+                    <button
+                        aria-label="Like"
+                        onClick={handleClick}
+                        className={`p-2 rounded-full transition ${animate ? "animate-ping-short" : ""}`}
                     >
-                        <FaHeart className="w-5 h-5 text-red-500 dark:text-red-400" />
-                    </a>
+                        <FaHeart
+                            className={`w-5 h-5 transition-colors duration-300 ${liked ? "text-red-500" : "text-white"}`}
+                        />
+                    </button>
+
                     <a
                         href="https://www.instagram.com/irte.snaps/"
                         target="_blank"
@@ -96,7 +75,13 @@ export default function SnapsNavbar() {
                     >
                         <FaInstagram className="w-5 h-5 text-gray-700 dark:text-gray-200" />
                     </a>
+
+                    <div className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+                        <ThemeToggle floating={false} />
+                    </div>
+
                 </div>
+
             </div>
         </nav>
     );

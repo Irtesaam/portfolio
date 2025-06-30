@@ -4,31 +4,36 @@ import { useTheme } from "next-themes";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-const ThemeToggle = () => {
-  const { setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+const ThemeToggle = ({ floating = false }: { floating?: boolean }) => {
+    const { setTheme, resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true); // Ensures hydration has completed
-  }, []);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-  if (!mounted || !resolvedTheme) {
-    return null; // Prevent rendering until hydration is done to avoid incorrect initial theme flicker
-  }
+    if (!mounted || !resolvedTheme) return null;
 
-  return (
-    <button
-      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-      className="fixed top-5 right-5 z-50 p-2 rounded-full bg-slate-200 dark:bg-slate-900 dark:hover:bg-black-500 hover:bg-white-500 transition duration-700 transform hover:scale-110 focus:outline-none"
-      aria-label="Toggle Theme"
-    >
-      {resolvedTheme === "dark" ? (
-        <FaMoon className="text-blue-800" size={24} />
-      ) : (
-        <FaSun className="text-amber-500" size={24} />
-      )}
-    </button>
-  );
+    const commonClasses = "p-2 rounded-full transition duration-300 transform hover:scale-110 focus:outline-none";
+    const themeClasses = "bg-slate-200 dark:bg-slate-900 dark:hover:bg-black hover:bg-white";
+
+    const positionClasses = floating
+        ? "fixed top-5 right-5 z-50"
+        : "";
+
+    return (
+        <button
+            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+            className={`${commonClasses} ${themeClasses} ${positionClasses}`}
+            aria-label="Toggle Theme"
+        >
+            {resolvedTheme === "dark" ? (
+                <FaMoon className="text-blue-800" size={20} />
+            ) : (
+                <FaSun className="text-amber-500" size={20} />
+            )}
+        </button>
+    );
 };
 
 export default ThemeToggle;

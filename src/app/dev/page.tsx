@@ -15,7 +15,7 @@ export default function DevPortfolio() {
     return (
         <main className="relative dark:bg-black-100 bg-white flex justify-center items-center flex-col overflow-hidden mx-auto w-full font-sans" style={{ fontFamily: '"Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif' }}>
             <SpeedInsights />
-            <ThemeToggle />
+            <ThemeToggle floating />
             <FloatingNav navItems={navItems} className="hidden md:flex" />
             <Hero />
             <About />
