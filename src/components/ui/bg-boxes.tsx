@@ -7,7 +7,7 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
     const rows = new Array(60).fill(1); // lower the number for performance
     const cols = new Array(60).fill(1); // lower the number for performance
 
-    let colors = [
+    const colors = [
         "#93c5fd",
         "#f9a8d4",
         "#86efac",

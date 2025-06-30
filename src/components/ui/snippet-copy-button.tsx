@@ -22,12 +22,12 @@ export default function SnippetCopyButton() {
                     textarea.select();
                     try {
                         success = document.execCommand("copy");
-                    } catch (err) {
+                    } catch {
                         success = false;
                     }
                     document.body.removeChild(textarea);
                 }
-            } catch (err) {
+            } catch {
                 success = false;
             }
         }

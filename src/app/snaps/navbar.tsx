@@ -1,7 +1,5 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import Link from "next/link";
-import React from "react";
 import { FaInstagram, FaHeart } from "react-icons/fa";
 import ThemeToggle from "@/components/toggle-theme";
 

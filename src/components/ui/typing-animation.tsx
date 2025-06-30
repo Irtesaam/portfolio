@@ -65,8 +65,6 @@ export default function TypingAnimation({
         }
     }, [currentText, currentRoleIndex, isTyping, isDeleting, roles, typingSpeed, pauseDuration, deletingSpeed])
 
-    const longestRole = roles.reduce((a, b) => (a.length > b.length ? a : b));
-
     return (
         <div className={`w-full text-center ${className}`}>
             <span>

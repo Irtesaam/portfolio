@@ -8,7 +8,6 @@ type SpotlightCardProps = {
 const SpotlightCard = ({ children, className = "" }: SpotlightCardProps) => {
     const divRef = useRef<HTMLDivElement>(null);
     const [coords, setCoords] = useState<{ x: number; y: number } | null>(null);
-    const [isDarkMode, setIsDarkMode] = useState(false);
 
     const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
         if (!divRef.current) return;
@@ -21,20 +20,6 @@ const SpotlightCard = ({ children, className = "" }: SpotlightCardProps) => {
     const handleMouseLeave = () => {
         setCoords(null);
     };
-
-    useEffect(() => {
-        // Detect dark mode
-        const mq = window.matchMedia("(prefers-color-scheme: dark)");
-        setIsDarkMode(mq.matches);
-        const handler = (e: MediaQueryListEvent) => setIsDarkMode(e.matches);
-        mq.addEventListener("change", handler);
-        return () => mq.removeEventListener("change", handler);
-    }, []);
-
-    const spotlightColor = isDarkMode
-        ? "rgba(255,255,255,0.4)"  // bright in dark
-        : "rgba(0,0,0,0.08)";       // dark subtle shadow in light
-
 
     return (
         <div
