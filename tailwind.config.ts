@@ -24,9 +24,6 @@ const config = {
             }
         },
         extend: {
-            animation: {
-                'ping-short': 'ping 0.6s cubic-bezier(0, 0, 0.2, 1) 3',
-            },
             colors: {
                 black: {
                     '100': '#000319',
@@ -175,7 +172,8 @@ const config = {
                 third: 'moveInCircle 40s linear infinite',
                 fourth: 'moveHorizontal 40s ease infinite',
                 fifth: 'moveInCircle 20s ease infinite',
-                scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite'
+                scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+                'ping-short': 'ping 0.6s cubic-bezier(0, 0, 0.2, 1) 3'
             }
         }
     },

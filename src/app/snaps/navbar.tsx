@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import { FaInstagram, FaHeart } from "react-icons/fa";
 import ThemeToggle from "@/components/toggle-theme";
+import Image from "next/image";
 
 export default function SnapsNavbar() {
     const [show, setShow] = useState(true);
@@ -45,10 +46,13 @@ export default function SnapsNavbar() {
 
                 {/* Center Logo */}
                 <div className="md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 select-none z-10">
-                    <img
+                    <Image
                         src="/snaps/irtesnaps.png"
                         alt="irtesnaps logo"
+                        width={120}
+                        height={80}
                         className="h-16 sm:h-20 w-30 object-contain drop-shadow-xl rounded-2xl bg-transparent invert dark:invert-0"
+                        priority
                     />
                 </div>
 
