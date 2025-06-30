@@ -27,6 +27,9 @@ const nextConfig: NextConfig = {
                 hostname: "assets.aceternity.com",
             },
         ],
+         domains: [
+      "api.microlink.io", // Microlink Image Preview
+    ],
     },
 };
 
