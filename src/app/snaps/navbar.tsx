@@ -64,8 +64,10 @@ export default function SnapsNavbar() {
                         className={`p-2 rounded-full transition ${animate ? "animate-ping-short" : ""}`}
                     >
                         <FaHeart
-                            className={`w-5 h-5 transition-colors duration-300 ${liked ? "text-red-500" : "text-white"}`}
+                            className={`w-5 h-5 transition-colors duration-300 ${liked ? "text-red-500" : "text-black dark:text-white"
+                                }`}
                         />
+
                     </button>
 
                     <a

@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { BackgroundBoxes } from "@/components/ui/welcome-page";
 

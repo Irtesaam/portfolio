@@ -65,6 +65,8 @@ export function LinkPreviewDemo() {
     return (
         <div className="font-serif flex flex-col md:flex-row items-center justify-center gap-4 text-sm md:text-base text-neutral-300">
             <LinkPreview
+                isStatic={true}
+                imageSrc="/preview/dev.webp"
                 url="https://irtesnaps.in/dev"
                 className="w-40 text-center px-4 py-2 rounded-md font-semibold text-white bg-gradient-to-r from-blue-500 to-purple-600 hover:scale-110 transition-transform"
             >
@@ -72,6 +74,8 @@ export function LinkPreviewDemo() {
             </LinkPreview>
             <span className="text-md md:text-base text-neutral-500">or</span>
             <LinkPreview
+                isStatic={true}
+                imageSrc="/preview/snaps.webp"
                 url="https://irtesnaps.in/snaps"
                 className="w-40 text-center px-4 py-2 rounded-md font-semibold text-white bg-gradient-to-r from-rose-500 to-purple-600 hover:scale-110 transition-transform shadow-md shadow-rose-800/30"
             >

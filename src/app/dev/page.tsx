@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import ThemeToggle from "@/components/toggle-theme";
 import Hero from "../../components/hero";
 import { FloatingNav } from "@/components/ui/floating-nav";
